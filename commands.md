@@ -31,3 +31,34 @@ az webapp deployment source config-zip --resource-group AZ204-LAB001 --src api.z
 ```bash
 az webapp deployment source config-zip --resource-group AZ204-LAB001 --src web.zip --name imgwebtsousa001
 ```
+
+## Cria uma azure function
+
+```bash
+func init --worker-runtime dotnet-isolated --target-framework net8.0 --force
+```
+
+### Cria uma função http
+
+```bash
+ func new --template "HTTP trigger" --name "Echo"
+```
+
+### Cria uma função trigger
+
+```bash
+ func new --template "TimerTrigger" --name "Echo"
+```
+
+## Adiciona o pacote a aplicação
+
+```bash
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage --version 6.2.0
+
+```
+
+## Publica a function
+
+```bash
+func azure functionapp publish lyto-processor-function --dotnet-version 8.0
+```

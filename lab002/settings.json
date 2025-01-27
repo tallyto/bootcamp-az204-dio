@@ -1,0 +1,29 @@
+{
+    "nome": "João Silva",
+    "idade": 30,
+    "sexo": "Masculino",
+    "endereco": {
+        "rua": "Rua das Flores",
+        "numero": 123,
+        "bairro": "Centro",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "cep": "01000-000"
+    },
+    "contatos": [
+        {
+            "tipo": "telefone",
+            "numero": "(11) 91234-5678"
+        },
+        {
+            "tipo": "email",
+            "endereco": "joao.silva@email.com"
+        }
+    ],
+    "profissao": "Engenheiro de Software",
+    "hobbies": [
+        "leitura",
+        "jogos de tabuleiro",
+        "viagens"
+    ]
+}
