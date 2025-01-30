@@ -62,3 +62,8 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Storage --version
 ```bash
 func azure functionapp publish lyto-processor-function --dotnet-version 8.0
 ```
+
+
+
+
+ dotnet add package Azure.Storage.Blobs --version 12.18.0   

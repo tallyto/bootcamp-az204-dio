@@ -15,8 +15,8 @@ namespace lab002
 
         [Function("GetSettingInfo")]
 
-        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req, [BlobInput("climaco-dio/settings.json", Connection = "AzureWebJobsStorage")]
-        string blobContent)
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req,
+            [BlobInput("climaco-dio/settings.json", Connection = "AzureWebJobsStorage")] string blobContent)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
             _logger.LogInformation($"{blobContent}");
