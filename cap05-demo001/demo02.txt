@@ -19,3 +19,8 @@ az container show --resource-group az204-acr-rg \
     --out table
 
 az group delete --name az204-acr-rg 
+
+az container create --resource-group az204-acr-rg \
+    --name tsousaaz204containertest \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld:latest 
+    --secrets pass-redis=SENHA@REDIS
