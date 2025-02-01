@@ -1,0 +1,21 @@
+az group create --name az204-acr-rg --location eastus
+
+DNS_NAME_LABEL=aci-example-tsousa-$RANDOM
+
+az container create --resource-group az204-acr-rg \
+    --name tsousaaz204containertest \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld:latest \
+    --ports 80 \
+    --dns-name-label $DNS_NAME_LABEL \
+    --location eastus \
+    --os-type Linux \
+    --cpu 1 \
+    --memory 1.5
+
+
+az container show --resource-group az204-acr-rg \
+    --name tsousaaz204containertest \
+    --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" \
+    --out table
+
+az group delete --name az204-acr-rg 
