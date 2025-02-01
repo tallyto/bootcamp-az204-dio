@@ -67,3 +67,23 @@ func azure functionapp publish lyto-processor-function --dotnet-version 8.0
 
 
  dotnet add package Azure.Storage.Blobs --version 12.18.0   
+
+ az group create --name az204-acr-rc --location eastus
+
+ az arc create --resource-group az204-acr-rc --name acr-demo01-az2004 --sku Basic
+
+ az acr create --resource-group az204-acr-rc --name acrdemo01az2004tsousa --sku Basic
+
+echo FROM mcr.microsoft.com/mcr/hello-world > Dockerfile
+
+az acr build --image sample/hello-world:v1 --registry acrdemo01az2004tsousa --file Dockerfile .
+
+az acr repository list --name acrdemo01az2004tsousa
+
+az acr repository list --name acrdemo01az2004tsousa --output table
+
+az acr repository show-tags --name acrdemo01az2004tsousa --repository sample/hello-world --output table
+
+az acr run --registry acrdemo01az2004tsousa --cmd '$Registry/sample/hello-world:1' /dev/null
+
+az group delete --name az204-acr-rc --no-wait 
